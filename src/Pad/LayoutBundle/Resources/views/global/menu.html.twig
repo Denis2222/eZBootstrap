@@ -1,0 +1,14 @@
+<header class="transit header-clear">
+{#    {% include 'PadLayoutBundle:global:menu/logo.html.twig' %} #}
+
+    <nav class="main-menu">
+        {{ knp_menu_render(menu, {'depth': 10, 'firstClass': '', 'lastClass': ''}) }}
+   </nav>
+
+   {% include 'PadLayoutBundle:global:menu/quick-icons.html.twig' %}
+    <div class="clear"></div>
+</header>
+
+<nav id="mobile-menu">
+    {{ knp_menu_render(menu, {'depth': 10, 'firstClass': '', 'lastClass': ''}) }}
+</nav>

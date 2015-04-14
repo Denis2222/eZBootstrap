@@ -1,0 +1,3 @@
+pad_layout_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PadLayoutBundle:Default:index }

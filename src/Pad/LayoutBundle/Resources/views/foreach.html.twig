@@ -1,0 +1,62 @@
+{% if preContent is defined %}
+    {% for component in preContent %}
+        {{
+            render(
+                controller(
+                    "ez_content:viewLocation",
+                    {
+                        'locationId': component.contentInfo.mainLocationId,
+                        'viewType': viewType,
+                        'params': { "first": loop.first }
+                    }
+                )
+            )
+        }}
+    {% endfor %}
+{% endif %}
+
+{% if content is defined %}
+    <div id="page" class="page">
+        <div class="header-page padd-y-75 bg-fs-clr">
+          <div class="title-page padd-x-25 wh-clr">
+            {{ ez_render_field(content,'title') }}
+          </div>
+        </div>
+        <div class="post-wrap padd-y-50 boxed">
+          {{ ez_render_field(content,'body') }}
+        </div>
+    </div>
+{% endif %}
+
+{% if postContent is defined %}
+    {% for component in postContent %}
+        {{
+            render(
+                controller(
+                    "ez_content:viewLocation",
+                    {
+                        'locationId': component.contentInfo.mainLocationId,
+                        'viewType': viewType
+                    }
+                )
+            )
+        }}
+    {% endfor %}
+{% endif %}
+
+{% if components is defined %}
+    {% for component in components %}
+        {{
+            render(
+                controller(
+                    "ez_content:viewLocation",
+                    {
+                        'locationId': component.contentInfo.mainLocationId,
+                        'viewType': viewType
+                    }
+                )
+            )
+        }}
+    {% endfor %}
+{% endif %}
+

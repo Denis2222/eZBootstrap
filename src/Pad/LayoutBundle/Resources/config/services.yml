@@ -1,0 +1,50 @@
+parameters:
+    page.rendercontroller.class:      Pad\LayoutBundle\Controller\PageController
+    container.rendercontroller.class: Pad\LayoutBundle\Controller\ContainerController
+    search.rendercontroller.class:    Pad\LayoutBundle\Controller\SearchController
+    menu.rendercontroller.class:      Pad\LayoutBundle\Controller\MenuController
+
+services:
+    page.controller:
+        class: %page.rendercontroller.class%
+        arguments: [@ezpublish.view_manager,@security.context]
+        calls:
+            - [setContainer, [@service_container] ]
+
+    container.controller:
+        class: %container.rendercontroller.class%
+        arguments: [@ezpublish.view_manager,@security.context]
+        calls:
+            - [setContainer, [@service_container] ]
+
+    search.controller:
+        class: %search.rendercontroller.class%
+        arguments: [@ezpublish.view_manager,@security.context]
+        calls:
+            - [setContainer, [@service_container] ]
+
+
+    menu.controller:
+        class: %menu.rendercontroller.class%
+        arguments: [@ezpublish.view_manager,@security.context]
+        calls:
+            - [setContainer, [@service_container] ]
+
+    config.service:
+        class: Pad\LayoutBundle\Service\ConfigService
+        arguments: [@ezpublish.api.repository, @ezpublish.config.resolver]
+
+    layout.menu.top:
+        class: Pad\LayoutBundle\Menu\Builder
+        factory_service: layout.menu.builder
+        factory_method: createTopMenu
+        arguments: [ @request ]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: top } # The alias is what is used to retrieve the menu
+
+    layout.pre_content_view_listener:
+        class: Pad\LayoutBundle\EventListener\PreContentViewListener
+        arguments: [@ezpublish.api.repository, @ezpublish.config.resolver]
+        tags:
+            - {name: kernel.event_listener, event: ezpublish.pre_content_view, method: onPreContentView}

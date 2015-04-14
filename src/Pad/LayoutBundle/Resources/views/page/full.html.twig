@@ -1,0 +1,16 @@
+{% extends "PadLayoutBundle::pagelayout.html.twig" %}
+
+{% block meta_title %}
+    {{ content.getFieldValue( 'title' ) }}
+{% endblock %}
+
+
+{% block content %} 
+    {{render(controller(
+      "page.controller:generate",
+      {
+        'locationId': location.id,
+        'content': content
+      }
+    ))}}
+{% endblock %}

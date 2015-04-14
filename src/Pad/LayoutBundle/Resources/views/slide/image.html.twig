@@ -1,0 +1,16 @@
+<div>
+    <span
+    class="item-image" 
+    style="background-image: url({{ asset( ez_image_alias( content.getField( 'image' ), content.versionInfo, 'full' ).uri, absolute=false ) }});"></span>
+    <div class="intro-message">
+        {% if not ez_is_field_empty( content, 'name' ) %}
+            <div class="intro-title padd-x-50">{{ ez_render_field(content,'name') }}</div>
+        {% endif %}
+
+        {% if not ez_is_field_empty( content, 'caption' ) %}
+            <div class="intro-subtitle marg-x-50 bg-fs-clr">
+                {{ ez_render_field(content,'caption') }}
+            </div>
+        {% endif %}
+    </div>
+</div>

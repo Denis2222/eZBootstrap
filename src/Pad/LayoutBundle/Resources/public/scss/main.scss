@@ -1,0 +1,28 @@
+$primaryColor: #2574a9;
+$secondaryColor: #22313F;
+$clearColor: #FFF;
+
+@import 'lib/style';
+@import 'lib/grid';
+@import 'lib/icons';
+
+
+*{
+
+}
+
+@import 'lib/YTplayer';
+
+@import 'lib/lightbox';
+
+@import 'lib/owl/carousel';
+@import 'lib/owl/transitions';
+
+@import 'lib/responsive';
+@import 'lib/slicknav';
+
+@import 'lib/ie';
+@import 'lib/jquery.fancybox';
+@import 'lib/jquery-ui';
+
+@import 'lib/custom';

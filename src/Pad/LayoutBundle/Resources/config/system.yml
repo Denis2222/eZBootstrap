@@ -1,0 +1,58 @@
+system:
+    front_group:
+        content:
+            tree_root:
+                location_id: 77
+
+
+        location_view:
+            full:
+                page:
+                    template: PadLayoutBundle:page:full.html.twig
+                    match:
+                        Identifier\ContentType: page
+            container:
+                block_full_slider:
+                    template: PadLayoutBundle:container:block_full_slider.html.twig
+                    match:
+                        Identifier\ContentType: block_full_slider
+                block_parallax_slider:
+                    template: PadLayoutBundle:container:block_parallax_slider.html.twig
+                    match:
+                        Identifier\ContentType: block_parallax_slider 
+                block_full_parallax:
+                    template: PadLayoutBundle:container:block_full_parallax.html.twig
+                    match:
+                        Identifier\ContentType: block_full_parallax
+                block_text:
+                    template: PadLayoutBundle:container:block_text.html.twig
+                    match:
+                        Identifier\ContentType: block_text
+                block_list_page:
+                    template: PadLayoutBundle:container:block_list_page.html.twig
+                    match:
+                        Identifier\ContentType: block_list_page
+                block_contact:
+                    template: PadLayoutBundle:container:block_contact.html.twig
+                    match:
+                        Identifier\ContentType: block_contact
+            item:
+                image:
+                    template: PadLayoutBundle:item:image.html.twig
+                    match:
+                        Identifier\ContentType: image
+                page:
+                    template: PadLayoutBundle:item:page.html.twig
+                    match:
+                        Identifier\ContentType: page
+            slide:
+                image:
+                    template: PadLayoutBundle:slide:image.html.twig
+                    match:
+                        Identifier\ContentType: image
+
+            menu:
+                page:
+                    template: PadLayoutBundle:global:menu/page.html.twig
+                    match:
+                        Identifier\ContentType: page

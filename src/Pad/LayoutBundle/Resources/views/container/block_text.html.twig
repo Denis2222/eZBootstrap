@@ -1,0 +1,17 @@
+
+{% if ((first is defined) and first) %}
+    {% set firstClass = "marg-top-100" %}
+    <div id="active-dark-menu" class="hidden"></div>
+{% else %}
+    {% set firstClass = "" %}
+{% endif %}
+
+<div id="{{ content.id }}" class="section">
+  <div class="header-page padd-y-75 bg-fs-clr {{ firstClass }}">
+    <div class="title-page padd-x-25 wh-clr">{{ ez_render_field(content,'title') }}</div>
+  </div>
+  <div class="post-wrap padd-y-50 boxed">
+      <h1>{{ ez_render_field(content,'subtitle') }}</h1>
+    {{ ez_render_field(content,'body') }}
+  </div>
+</div>

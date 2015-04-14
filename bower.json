@@ -1,0 +1,31 @@
+{
+  "name": "eZbootstrap",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Denis2222/eZBootstrap",
+  "authors": [
+    "Denis <denismoureu@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "animate.css": "~3.2.1",
+    "jquery.easing": "~1.3.1",
+    "jquery_appear": "~0.3.4",
+    "jquery-ui": "~1.11.3",
+    "fancybox": "~2.1.5",
+    "FitText.js": "~1.2.0",
+    "letteringjs": "~0.7.0",
+    "jquery.mb.ytplayer": "~2.8.0",
+    "jquery-mousewheel": "~3.1.12",
+    "textillate": "jschr/textillate",
+    "masonry": "3.1.5",
+    "modernizr": "~2.8.3",
+    "bootstrap": "~3.3.2",
+    "jquery-masonry": "~3.2.2",
+    "isotope": "~2.1.1"
+  },
+  "devDependencies": {
+    "isotope": "~2.1.1"
+  }
+}

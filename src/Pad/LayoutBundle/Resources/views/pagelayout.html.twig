@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block meta_title %}Maya - Smart & Powerful HTML Theme{% endblock %}</title>
+        {% block page_head %}
+            {% include 'PadLayoutBundle::page_head.html.twig' %}
+        {% endblock %}
+        {% include 'PadLayoutBundle::page_head_style.html.twig' %}
+    </head>
+    <body>
+		{% block header %}
+      {{
+        render(
+          controller(
+            'PadLayoutBundle:Menu:index'
+          )
+        )
+      }}
+		{% endblock %}
+    {% block content %}{% endblock %}
+		{% block footer %}
+		    {% include 'PadLayoutBundle:global:footer.html.twig' %}
+		{% endblock %}
+      {% include 'PadLayoutBundle::page_script.html.twig' %}
+      <script>
+          {% block javascript %}{% endblock %}
+      </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+{% set backgroundImage = asset( ez_image_alias( content.getField( 'background' ), content.versionInfo, 'full' ).uri, absolute=false ) %}
+<div id="{{ content.id }}" class="section">
+  <div class="serv-content">
+    <div class="serv-list parallax" style="background-image: url({{ backgroundImage }});">
+      <div class="serv-layer padd-y-25 bg-bk-alpha">
+        <div class="boxed">
+          <div id="serv-carousel">
+            {{ location.id }}
+            {{ render(controller(
+              "container.controller:generate", {
+                'locationId': location.id,
+                'content': content
+              }
+            ))}}
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

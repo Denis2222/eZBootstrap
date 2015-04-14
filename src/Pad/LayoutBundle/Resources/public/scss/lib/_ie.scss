@@ -1,0 +1,29 @@
+/* FIX IE */
+
+.transit-fade,
+.transit-left,
+.transit-right,
+.transit-top,
+.transit-bottom,
+.transit-bouncein,
+.transit-flip,
+.transit-rotate {
+	opacity: 1;
+}
+
+.blog-caption,
+.port-caption,
+.gallery-caption  {
+	transform: scale(1,1);
+	opacity: 0;
+}
+
+.blog-thumb:hover .blog-caption,
+.port-item:hover .port-caption,
+.gallery-box:hover .gallery-caption {
+	opacity: 1;
+}
+
+.owl-item {
+	position: relative;
+}

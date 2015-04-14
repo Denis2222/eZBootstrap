@@ -1,0 +1,12 @@
+<div id="{{ content.id }}" class="section intro">
+  <div id="intro-slideshow" style="  cursor: col-resize;">
+    {{
+      render(controller(
+        "container.controller:generate", {
+          'locationId': location.id,
+          'content': content
+        }
+      ))
+    }}
+  </div>
+</div>

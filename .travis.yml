@@ -1,0 +1,41 @@
+language: php
+
+# run tests on php 5.5 only and let unit / integration tests deal with php differences
+php:
+  - 5.5
+
+# list of paths/bundle to execute
+env:
+  - INSTALL="demoContentNonUniqueDB" PROFILE="demo" TEST="content"
+  - PROFILE="demo" TEST="clean"
+  - PROFILE="rest" TEST="fullJson"
+  - PROFILE="rest" TEST="fullXml"
+
+
+# test only master (+ Pull requests)
+branches:
+  only:
+    - master
+
+# install packages
+before_install:
+  - ./bin/.travis/prepare_system.sh
+  - ./bin/.travis/prepare_sahi.sh
+#  - ./bin/.travis/prepare_selenium2.sh
+
+# setup requirements for running tests
+before_script:
+  # Prepare eZ Publish (composer, permissions, assets, cache warmup)
+  - ./bin/.travis/prepare_ezpublish.sh
+
+# execute behat as the script command
+script:
+  - php bin/behat -vv --profile $PROFILE --suite $TEST
+
+# disable mail notifications
+notification:
+  email: false
+
+# reduce depth (history) of git checkout
+git:
+  depth: 30

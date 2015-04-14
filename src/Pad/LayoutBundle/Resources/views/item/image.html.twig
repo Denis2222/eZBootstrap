@@ -1,0 +1,12 @@
+{% set backgroundUrl = asset( ez_image_alias( content.getField( 'image' ), content.versionInfo, 'large' ).uri, absolute=false ) %}
+
+<div class="serv-box padd-25 marg-25 brd-wh-clr" style="background-image: url({{ backgroundUrl }}); background-size: cover;">
+  <div class="serv-icon wh-clr">
+  <i class="icon-monitor"></i>
+  </div>
+  <div class="serv-title wh-clr">{{ ez_render_field(content,'name') }}</div>
+  <div class="line-center brd-wh-clr"></div>
+  <div class="serv-exc wh-clr">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia, turpis nec convallis volutpat, velit lacus consectetur nulla.
+  </div>
+</div>

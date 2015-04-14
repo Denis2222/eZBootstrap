@@ -1,0 +1,62 @@
+{% if preContent is defined %}
+    {% for component in preContent %}
+        {{ render(controller(
+            "ez_content:viewLocation",
+            {
+                'locationId': component.contentInfo.mainLocationId,
+                'viewType': viewType,
+                'params': { "first": loop.first }
+            }
+        ))}}
+    {% endfor %}
+{% endif %}
+
+{% if content is defined and not ez_is_field_empty( content, 'body' ) %}
+    <div id="page" class="section">
+        <div class="header-page padd-y-75 bg-fs-clr">
+          <div class="title-page padd-x-25 wh-clr">
+            {{ ez_render_field( content, 'title' ) }}
+          </div>
+        </div>
+        <div class="post-wrap padd-y-50 boxed">
+          {{ ez_render_field( content, 'body' ) }}
+        </div>
+    </div>
+{% endif %}
+
+{% if postContent is defined %}
+    {% for component in postContent %}
+        {{
+            render(
+                controller(
+                    "ez_content:viewLocation",
+                    {
+                        'locationId': component.contentInfo.mainLocationId,
+                        'viewType': viewType,
+                        'params': { "first": loop.first }
+                    }
+                )
+            )
+        }}
+    {% endfor %}
+{% endif %}
+
+<div id="quicklink" class="section">
+  <div id="icons-menu" class="transit-top" data-delay="1500" data-appear="false">
+    <ul>
+        {% for component in preContent %}
+            <li data-title="Overview" data-scrollto="#{{ component.id }}"><i class="icon-eye"></i></li>
+        {% endfor %}
+        {% for component in postContent %}
+            <li data-title="Works" data-scrollto="#{{ component.id }}"><i class="icon-box"></i></li>
+        {% endfor %}
+
+        {# 
+              <li data-title="Works" data-scrollto="#portfolio"><i class="icon-box"></i></li>
+              <li data-title="Blog" data-scrollto="#blog"><i class="icon-paper"></i></li>
+              <li data-title="Contacts" data-scrollto="#form"><i class="icon-mail"></i></li>
+              <li data-title="Map" data-scrollto="#map"><i class="icon-globe"></i></li>
+        #}
+    </ul>
+  </div>
+</div>

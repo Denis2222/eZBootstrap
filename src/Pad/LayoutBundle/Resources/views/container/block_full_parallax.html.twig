@@ -1,0 +1,12 @@
+{% set backgroundImage = asset(ez_image_alias(content.getField( 'background' ), content.versionInfo, 'full' ).uri, absolute=false) %}
+<div id="intro" class="section">
+  <div class="parallax dotted" style="background-image: url({{ backgroundImage }});"></div>
+  <div class="intro-message">
+      <div class="intro-title padd-x-50">
+        {{ ez_render_field(content,'title') }}
+      </div>
+      <div class="intro-subtitle marg-x-50 bg-fs-clr">
+        {{ ez_render_field(content,'subtitle') }}
+      </div>
+  </div>
+</div>

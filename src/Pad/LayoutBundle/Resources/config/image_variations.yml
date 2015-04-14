@@ -1,0 +1,9 @@
+system:
+    front_group:
+        image_variations:
+            full:
+                reference: null
+                filters:
+                    - { name: geometry/scaledownonly, params: [1920,1080] }
+                post_processors:
+                    jpegoptim: {}
